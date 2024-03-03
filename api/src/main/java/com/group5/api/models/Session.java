@@ -8,18 +8,17 @@ import jakarta.persistence.Table;
 import java.util.List;
 
 @Entity
-@Table(name = "sessions",
-       schema = "public")
+@Table(name = "sessions", schema = "public")
 public class Session {
     @Id
-    @Column(name = "student_id")
+    @Column(name = "session_id")
     private Integer id;
     @Column(name = "subject")
-    private String subject; // session subject
+    private String subject;
     @Column(name = "language")
-    private String language; // session language
+    private String language;
     @Column(name = "students")
-    private List<Integer> students; // list of student ids
+    private List<Integer> students; // list of enrolled student id's
 
     public Session() {}
 

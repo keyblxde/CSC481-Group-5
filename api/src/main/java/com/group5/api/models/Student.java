@@ -8,8 +8,7 @@ import jakarta.persistence.Table;
 import java.util.List;
 
 @Entity
-@Table(name = "students",
-       schema = "public")
+@Table(name = "students", schema = "public")
 public class Student {
     @Id
     @Column(name = "student_id")
@@ -20,9 +19,8 @@ public class Student {
     private String firstName;
     @Column(name = "native_language")
     private String nativeLanguage;
-    @Column(name = "sessions",
-            columnDefinition = "integer[]")
-    private List<Integer> sessions;
+    @Column(name = "sessions", columnDefinition = "integer[]")
+    private List<Integer> sessions; // list of enrolled session id's
 
     public Student() {}
 
