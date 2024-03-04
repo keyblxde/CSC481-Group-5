@@ -1,0 +1,23 @@
+<!-- patients-table.component.html -->
+<!doctype html>
+<app-patients-tab></app-patients-tab>
+<app-generic-table
+  [dataSource]="dataSource"
+  [columns]="columns"
+  [columnHeaders]="columnHeaders"
+  [selection]="selection"
+  (selectionChanged)="refreshSelection($event)"
+></app-generic-table>
+<app-generic-selection-list
+  title="Selected Patients"
+  subtitle="Selected Patients Will Appear Below"
+  [sorted]="sortedPatients"
+  [selection]="selection"
+  (selectionChanged)="refreshSelection($event)"
+  (updateRequest)="displayUpdateOptions = $event"
+  (deleteRequest)="deletePatients($event)"
+></app-generic-selection-list>
+<ng-container *ngIf="displayUpdateOptions">
+  <app-patients-edit-form [originalPatients]="sortedPatients"></app-patients-edit-form>
+</ng-container>
+
